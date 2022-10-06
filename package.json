@@ -1,6 +1,6 @@
 {
   "name": "peer-wechat-official",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "author": "peer.liu",
   "description": "微信公众号api接口",
   "license": "Apache Licence 2.0",
