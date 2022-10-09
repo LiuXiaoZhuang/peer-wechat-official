@@ -1,5 +1,6 @@
 import axios, { AxiosRequestConfig } from 'axios'
-import { Logger, AccessToken, Response } from './types'
+import { Logger, AccessToken, JsapiTicket, Response } from './types'
+import { Readable } from 'stream';
 
 export class Util {
 
@@ -11,6 +12,11 @@ export class Util {
     public accessToken: AccessToken
     setAccessToken(getAccessToken: AccessToken){
         this.accessToken = getAccessToken
+    }
+
+    public jsapiTicket: JsapiTicket
+    setJsapiTicket(getJsapiTicket: JsapiTicket){
+        this.jsapiTicket = getJsapiTicket
     }
 
     async request<T, E>(url: string, options: AxiosRequestConfig = {}): Promise<Response<T, E>>{
@@ -52,5 +58,27 @@ export class Util {
             result: null,
             error: null,
         }
+    }
+
+    // 下载网络图片
+    async downloadFile(url: string): Promise<Readable>{
+        let res = await axios.get(url, {responseType: 'stream'});
+        if(res.status < 200 || res.status > 204){
+            return null;
+        }
+        return res.data
+    }
+
+    // 获取随机字符串
+    randStr(len: number = 8): string{
+        if(len <= 0){
+            return '';
+        }
+        let tmp = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+        let str = '';
+        for(let i=0; i<len; i++){
+            str += tmp[Math.floor(Math.random() * (tmp.length - 0.1))]
+        }
+        return str;
     }
 }

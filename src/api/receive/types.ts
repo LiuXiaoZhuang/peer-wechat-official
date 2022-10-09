@@ -10,6 +10,7 @@ type BaseMessage = Base & {
     MsgId: string,
     MsgDataId?: string,
     Idx?: string,
+    bizmsgmenuid?: string,
 }
 
 // 接收文本消息
@@ -170,7 +171,15 @@ type SubscribeMsgPopupEvent = BaseEvent & {
     }
 }
 
+// 授权变更
+type UserInfoModifiedEvent = BaseEvent & {
+    Event: 'user_info_modified',
+    OpenID: string,
+    AppID: string,
+    RevokeInfo: string,
+}
+
 // 接收事件
-type Event = SubscribeEvent | UnsubscribeEvent | LocationEvent | ClickEvent | ViewEvent | MasssendJobFinishEvent | TemplateSendJobFinishEvent | SubscribeMsgPopupEvent
+type Event = SubscribeEvent | UnsubscribeEvent | LocationEvent | ClickEvent | ViewEvent | MasssendJobFinishEvent | TemplateSendJobFinishEvent | SubscribeMsgPopupEvent | UserInfoModifiedEvent
 
 export type ReceiveData = Message | Event

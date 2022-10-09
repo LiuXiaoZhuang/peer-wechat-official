@@ -60,5 +60,12 @@ type News = Base & {
     }[],
 }
 
+type TransferCustomerService = Base & {
+    MsgType: 'transfer_customer_service',
+    TransInfo?: {
+        KfAccount: string
+    }
+}
+
 // 回复消息
-export type Message = Text | Image | Voice | Video | Music | News
+export type Message = Text | Image | Voice | Video | Music | News | TransferCustomerService

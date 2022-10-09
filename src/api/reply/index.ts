@@ -64,8 +64,14 @@ export class Reply {
                                 }).join('')
                             }
                         </Articles>`
-    
+            case 'transfer_customer_service':
+                if('TransInfo' in message){
+                    return `<TransInfo> 
+                                <KfAccount><![CDATA[${message.TransInfo.KfAccount}]]></KfAccount> 
+                            </TransInfo>`
+                }
     
         }
+        return ''
     }
 }

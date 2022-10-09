@@ -11,10 +11,12 @@ export interface Logger {
 }
 
 export type AccessToken = (appID: string)=>string | Promise<string>
+export type JsapiTicket = (appID: string)=>string | Promise<string>
 export type Response<T, E> = {
     status: 'success' | 'fail' | 'network' | 'system';
     result: T;
     error: E;
+    header?: Record<string, any>
 }
 
 export type OfficialResponse = {
