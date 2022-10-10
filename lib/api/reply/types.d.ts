@@ -46,5 +46,11 @@ declare type News = Base & {
         Url: string;
     }[];
 };
-export declare type Message = Text | Image | Voice | Video | Music | News;
+declare type TransferCustomerService = Base & {
+    MsgType: 'transfer_customer_service';
+    TransInfo?: {
+        KfAccount: string;
+    };
+};
+export declare type Message = Text | Image | Voice | Video | Music | News | TransferCustomerService;
 export {};

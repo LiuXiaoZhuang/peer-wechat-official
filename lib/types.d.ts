@@ -6,10 +6,12 @@ export interface Logger {
     error(message: string): void;
 }
 export declare type AccessToken = (appID: string) => string | Promise<string>;
+export declare type JsapiTicket = (appID: string) => string | Promise<string>;
 export declare type Response<T, E> = {
     status: 'success' | 'fail' | 'network' | 'system';
     result: T;
     error: E;
+    header?: Record<string, any>;
 };
 export declare type OfficialResponse = {
     errcode: number;

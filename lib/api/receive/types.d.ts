@@ -7,6 +7,7 @@ declare type BaseMessage = Base & {
     MsgId: string;
     MsgDataId?: string;
     Idx?: string;
+    bizmsgmenuid?: string;
 };
 declare type Text = BaseMessage & {
     MsgType: 'text';
@@ -127,6 +128,34 @@ declare type SubscribeMsgPopupEvent = BaseEvent & {
         };
     };
 };
-declare type Event = SubscribeEvent | UnsubscribeEvent | LocationEvent | ClickEvent | ViewEvent | MasssendJobFinishEvent | TemplateSendJobFinishEvent | SubscribeMsgPopupEvent;
+declare type UserInfoModifiedEvent = BaseEvent & {
+    Event: 'user_info_modified';
+    OpenID: string;
+    AppID: string;
+    RevokeInfo: string;
+};
+declare type QualificationVerifySuccessEvent = BaseEvent & {
+    Event: 'qualification_verify_success';
+    ExpiredTime: number;
+};
+declare type QualificationVerifyFailEvent = BaseEvent & {
+    Event: 'qualification_verify_fail';
+    FailTime: number;
+    FailReason: string;
+};
+declare type NamingVerifySuccessEvent = BaseEvent & {
+    Event: 'naming_verify_success';
+    ExpiredTime: number;
+};
+declare type NamingVerifyFailEvent = BaseEvent & {
+    Event: 'naming_verify_fail';
+    FailTime: number;
+    FailReason: string;
+};
+declare type AnnualRenewEvent = BaseEvent & {
+    Event: 'annual_renew';
+    ExpiredTime: number;
+};
+declare type Event = SubscribeEvent | UnsubscribeEvent | LocationEvent | ClickEvent | ViewEvent | MasssendJobFinishEvent | TemplateSendJobFinishEvent | SubscribeMsgPopupEvent | UserInfoModifiedEvent | QualificationVerifySuccessEvent | QualificationVerifyFailEvent | NamingVerifySuccessEvent | NamingVerifyFailEvent | AnnualRenewEvent;
 export declare type ReceiveData = Message | Event;
 export {};

@@ -20,6 +20,7 @@ import { UserTag } from './api/user-tag'
 import { UserBlack } from './api/user-black'
 import { Qrcode } from './api/qrcode'
 import { ShortKey } from './api/short-key'
+import { Count } from './api/count'
 
 export type Options = {
     getAccessToken?: AccessToken,
@@ -50,6 +51,7 @@ export default class Client {
     public userBlack: UserBlack // 用户黑名单
     public qrcode: Qrcode // 带参数二维码
     public shortKey: ShortKey // 短key
+    public count: Count // 统计
 
     constructor(private appID: string, private appSecret: string, options: Options = {}){
         this.util = new Util()
@@ -80,5 +82,6 @@ export default class Client {
         this.userBlack = new UserBlack(this.appID, this.appSecret, this.util)
         this.qrcode = new Qrcode(this.appID, this.appSecret, this.util)
         this.shortKey = new ShortKey(this.appID, this.appSecret, this.util)
+        this.count = new Count(this.appID, this.appSecret, this.util)
     }
 }

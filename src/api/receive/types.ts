@@ -179,7 +179,52 @@ type UserInfoModifiedEvent = BaseEvent & {
     RevokeInfo: string,
 }
 
+// 资质认证成功（此时立即获得接口权限）
+type QualificationVerifySuccessEvent = BaseEvent & {
+    Event: 'qualification_verify_success',
+    ExpiredTime: number,
+}
+
+// 资质认证失败
+type QualificationVerifyFailEvent = BaseEvent & {
+    Event: 'qualification_verify_fail',
+    FailTime: number,
+    FailReason: string,
+}
+
+// 名称认证成功（即命名成功）
+type NamingVerifySuccessEvent = BaseEvent & {
+    Event: 'naming_verify_success',
+    ExpiredTime: number,
+}
+
+// 名称认证失败（这时虽然客户端不打勾，但仍有接口权限）
+type NamingVerifyFailEvent = BaseEvent & {
+    Event: 'naming_verify_fail',
+    FailTime: number,
+    FailReason: string,
+}
+
+// 年审通知
+type AnnualRenewEvent = BaseEvent & {
+    Event: 'annual_renew',
+    ExpiredTime: number,
+}
+
 // 接收事件
-type Event = SubscribeEvent | UnsubscribeEvent | LocationEvent | ClickEvent | ViewEvent | MasssendJobFinishEvent | TemplateSendJobFinishEvent | SubscribeMsgPopupEvent | UserInfoModifiedEvent
+type Event = SubscribeEvent |
+            UnsubscribeEvent |
+            LocationEvent |
+            ClickEvent |
+            ViewEvent |
+            MasssendJobFinishEvent |
+            TemplateSendJobFinishEvent |
+            SubscribeMsgPopupEvent |
+            UserInfoModifiedEvent |
+            QualificationVerifySuccessEvent |
+            QualificationVerifyFailEvent |
+            NamingVerifySuccessEvent |
+            NamingVerifyFailEvent |
+            AnnualRenewEvent
 
 export type ReceiveData = Message | Event

@@ -1,4 +1,5 @@
-import { AccessToken } from './types';
+import { Util } from './util';
+import { AccessToken, JsapiTicket } from './types';
 import { Base } from './api/base';
 import { OpenApi } from './api/open-api';
 import { Menu } from './api/menu';
@@ -6,13 +7,27 @@ import { Receive } from './api/receive';
 import { Reply } from './api/reply';
 import { Template } from './api/template';
 import { Subscribe } from './api/subscribe';
+import { Service } from './api/service';
+import { Web } from './api/web';
+import { Media } from './api/media';
+import { Draft } from './api/draft';
+import { Publish } from './api/publish';
+import { Message } from './api/message';
+import { Comment } from './api/comment';
+import { User } from './api/user';
+import { UserTag } from './api/user-tag';
+import { UserBlack } from './api/user-black';
+import { Qrcode } from './api/qrcode';
+import { ShortKey } from './api/short-key';
+import { Count } from './api/count';
 export declare type Options = {
-    getAccessToken: AccessToken;
+    getAccessToken?: AccessToken;
+    getJsapiTicket?: JsapiTicket;
 };
 export default class Client {
     private appID;
     private appSecret;
-    private util;
+    util: Util;
     base: Base;
     openApi: OpenApi;
     menu: Menu;
@@ -20,5 +35,18 @@ export default class Client {
     reply: Reply;
     template: Template;
     subscribe: Subscribe;
-    constructor(appID: string, appSecret: string, options?: Options | null);
+    service: Service;
+    web: Web;
+    media: Media;
+    draft: Draft;
+    publish: Publish;
+    message: Message;
+    comment: Comment;
+    userTag: UserTag;
+    user: User;
+    userBlack: UserBlack;
+    qrcode: Qrcode;
+    shortKey: ShortKey;
+    count: Count;
+    constructor(appID: string, appSecret: string, options?: Options);
 }
