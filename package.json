@@ -1,10 +1,10 @@
 {
   "name": "peer-wechat-official",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "author": "peer.liu",
   "description": "微信公众号api接口",
   "license": "Apache Licence 2.0",
-  "main": "./lib/index.js",
+  "main": "./dist/index.js",
   "scripts": {
     "build": "rollup -c"
   },

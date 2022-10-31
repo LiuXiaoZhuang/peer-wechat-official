@@ -1,6 +1,6 @@
 export type LoggerLevel = 'info' | 'warn' | 'error'
 export interface Logger {
-            
+
     log(level: LoggerLevel, message: string): void
 
     info(message: string): void

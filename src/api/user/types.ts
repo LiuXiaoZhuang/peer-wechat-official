@@ -1,32 +1,5 @@
 import { OfficialResponse } from '../../types'
 
-export type CreateResponse = {
-    tag: {
-        id: number,
-        name: string,
-    }
-}
-
-export type ListResponse = {
-    tags: {
-        id: number,
-        name: string,
-        count: number,
-    }
-}
-
-export type UserListResponse = {
-    count: number
-    data: {
-        openid: string[]
-    },  
-    next_openid: string
-}
-
-export type UserTagsResponse = {
-    tagid_list: number[]
-}
-
 export type Language = 'zh_CN' | 'zh_TW' | 'en'
 
 // 返回用户关注的渠道来源，ADD_SCENE_SEARCH 公众号搜索，ADD_SCENE_ACCOUNT_MIGRATION 公众号迁移，ADD_SCENE_PROFILE_CARD 名片分享，ADD_SCENE_QR_CODE 扫描二维码，ADD_SCENE_PROFILE_LINK 图文页内名称点击，ADD_SCENE_PROFILE_ITEM 图文页右上角菜单，ADD_SCENE_PAID 支付后关注，ADD_SCENE_WECHAT_ADVERTISEMENT 微信广告，ADD_SCENE_REPRINT 他人转载 ,ADD_SCENE_LIVESTREAM 视频号直播，ADD_SCENE_CHANNELS 视频号 , ADD_SCENE_OTHERS 其他

@@ -1,6 +1,4 @@
-import { Stream } from 'stream'
 import { OfficialResponse } from '../../types'
-import { Readable } from 'stream';
 
 type TextMessage = {
     msgtype: 'text',

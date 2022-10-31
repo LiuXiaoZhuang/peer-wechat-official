@@ -13,7 +13,7 @@ module.exports = {
 
     // 打包后的出口和设置
     output: {
-        file: 'lib/index.js',
+        file: 'dist/index.js',
         format: 'cjs',
         sourcemap: true,
         exports: 'default',
